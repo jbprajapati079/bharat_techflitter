@@ -9,29 +9,31 @@
 </head>
 
 <body>
-    <div class="container mt-4">
+<div class="container mt-4">
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-8">
+                <div class="input-group mb-3">
+                    <input type="text" id="search" class="form-control" placeholder="Search user...">
+                    <button class="btn btn-outline-danger" id="clear-search">Clear</button>
+                </div>
 
-                <!-- start users list -->
+                <table class="table table-bordered table-hover" id="users-table"></table>
+
+                <!-- Pagination + Entry Info on single line -->
+                <div class="d-flex justify-content-between align-items-center mt-2 flex-nowrap overflow-auto gap-2">
+                    <div id="entries-info" class="text-muted small flex-shrink-0"></div>
+                    <div id="pagination" class="d-flex flex-wrap justify-content-end flex-grow-1 gap-1"></div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
                 <div class="card">
-                    <h5 class="card-header">Users List</h5>
+                    <h5 class="card-header">User Detail</h5>
                     <div class="card-body">
-                        <div class="input-group mb-3">
-                            <input type="text" id="search" class="form-control" placeholder="Search user">
-                            <button class="btn btn-outline-danger" type="button" id="clear-search">Clear</button>
-                        </div>
-
-                        <table class="table table-bordered" id="users-table"></table>
-
-                        <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap">
-                            <div id="entries-info" class="text-muted small"></div>
-                            <div id="pagination" class="mt-1"></div>
-                        </div>
+                        <div id="user-detail">Click on a user row...</div>
                     </div>
                 </div>
             </div>
-            <!-- end users list -->
         </div>
     </div>
 
