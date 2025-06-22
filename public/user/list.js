@@ -12,7 +12,6 @@ function loadUsers(page = 1) {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                 `;
@@ -26,9 +25,6 @@ function loadUsers(page = 1) {
                             <td>${user.name}</td>
                             <td>${user.email}</td>
                             <td>${user.phone}</td>
-                            <td>
-                                <button class="btn btn-sm btn-success view-btn" data-id="${user.id}" data-bs-toggle="modal" data-bs-target="#userModal">View</button>
-                            </td>
                         </tr>
                     `;
         });
@@ -129,24 +125,6 @@ $('#clear-search').on('click', function () {
 
 // Auto-refresh every 10 seconds
 setInterval(() => loadUsers(currentPage), 10000);
-
-
-// start show user detail modal
-$(document).on('click', '.view-btn', function () {
-    const userId = $(this).data('id');
-    $('#user-modal-body').html('<div class="text-muted">Loading...</div>');
-
-    $.get(`/api/users/${userId}`, function (user) {
-        const userdetail = `
-            <p><strong>Name:</strong> ${user.name}</p>
-            <p><strong>Email:</strong> ${user.email}</p>
-            <p><strong>Phone:</strong> ${user.phone}</p>
-        `;
-        $('#user-modal-body').html(userdetail);
-    });
-});
-// end show user detail modal
-
 
 // userdata load
 loadUsers();
